@@ -1,0 +1,3 @@
+module GitGcCron
+  # Your code goes here...
+end
