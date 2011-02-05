@@ -1,0 +1,28 @@
+Description
+--------------
+
+git-gc-cron recursively searches for .git and *.git repos in the directories
+specified on the command line and runs "git gc" on them.
+
+Make sure you only have it search repos you own.
+
+
+Installation
+----------------
+
+As user or as root:
+
+  $ gem install git-gc-cron
+
+
+Put this into the system crontab (for example fcron on Linux):
+
+  %weekly,nice(10),runas(gitosis) * * git-gc-cron /var/spool/gitosis/repositories
+  %weekly,nice(10),runas(me) * * git-gc-cron /home/me/myprojects /home/me/myotherprojects
+
+or into your personal crontab, if you like:
+
+  %weekly,nice(10) * * git-gc-cron /home/me
+
+
+git-gc-cron takes any number of paths to traverse as argument.

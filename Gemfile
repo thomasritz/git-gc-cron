@@ -1,4 +1,4 @@
 source "http://rubygems.org"
 
-# Specify your gem's dependencies in git_gc_cron.gemspec
+# Specify your gem's dependencies in git-gc-cron.gemspec
 gemspec
