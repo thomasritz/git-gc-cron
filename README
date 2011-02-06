@@ -17,7 +17,7 @@ As user or as root:
 
 Put this into the system crontab (for example fcron on Linux):
 
-  %weekly,nice(10),runas(gitosis) * * git-gc-cron /var/spool/gitosis/repositories
+  %weekly,nice(10),runas(git) * * git-gc-cron /var/spool/gitosis/repositories
   %weekly,nice(10),runas(me) * * git-gc-cron /home/me/myprojects /home/me/myotherprojects
 
 or into your personal crontab, if you like:
@@ -26,3 +26,9 @@ or into your personal crontab, if you like:
 
 
 git-gc-cron takes any number of paths to traverse as argument.
+
+To see the progress you can watch the output of ps or top. For each repo it
+compresses git-gc-cron changes the process name of the subprocess "git gc" to
+something more useful:
+
+  (#1/10 /var/spool/gitosis/repositories/myproject.git) git
