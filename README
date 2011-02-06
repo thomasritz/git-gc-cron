@@ -26,3 +26,9 @@ or into your personal crontab, if you like:
 
 
 git-gc-cron takes any number of paths to traverse as argument.
+
+To see the progress you can watch the output of ps or top. For each repo it
+compresses git-gc-cron changes the process name of the subprocess "git gc" to
+something more useful:
+
+  (#1/10 /var/spool/gitosis/repositories/myproject.git) git

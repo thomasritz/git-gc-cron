@@ -3,9 +3,10 @@ module GitGcCron
 
     def self.start
       ARGV.each do |base|
-        Dir["#{base}/**/{.git,*.git}"].each do |repo_path|
+        repos = Dir["#{base}/**/{.git,*.git}"]
+        repos.each_with_index do |repo_path, i|
           Dir.chdir(repo_path) do
-            system "git gc -q"
+            system ["git", "(##{i + 1}/#{repos.size + 1} #{repo_path}) git"], "gc", "-q"
           end
         end
       end
