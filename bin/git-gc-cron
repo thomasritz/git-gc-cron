@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'git_gc_cron/cli'
+GitGcCron::CLI.start
